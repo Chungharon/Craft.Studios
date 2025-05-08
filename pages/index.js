@@ -4,7 +4,6 @@ import {
   Container,
   Heading,
   Box,
-  SimpleGrid,
   Button,
   List,
   ListItem,
@@ -15,10 +14,7 @@ import Paragraph from '../components/paragraph'
 import { BioSection, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
-import { GridItem } from '../components/grid-item'
 import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from 'react-icons/io5'
-import thumbYouTube from '../public/images/links/youtube.png'
-import thumbInkdrop from '../public/images/works/inkdrop_eyecatch.png'
 import Image from 'next/image'
 
 const Home = () => (
@@ -32,15 +28,16 @@ const Home = () => (
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         css={{ backdropFilter: 'blur(10px)' }}
       >
-        Hello, I&apos;m an indie app developer based in Japan!
+        Welcome to <strong>BrandCrafts</strong> — Crafting innovative digital portfolios and creative solutions for your brand&apos;s success.
       </Box>
+
 
       <Box display={{ md: 'flex' }}>
         <Box flexGrow={1}>
           <Heading as="h2" variant="page-title">
-            Takuya Matsuyama
+            BrandCrafts
           </Heading>
-          <p>Digital Craftsman ( Artist / Developer / Designer )</p>
+          <p>Digital Creative Company ( Websites / Mobile Development / AI )</p>
         </Box>
         <Box
           flexShrink={0}
@@ -59,7 +56,7 @@ const Home = () => (
             overflow="hidden"
           >
             <Image
-              src="/images/takuya.jpg"
+              src="/favicon.ico"
               alt="Profile image"
               width="100"
               height="100"
@@ -70,30 +67,22 @@ const Home = () => (
 
       <Section delay={0.1}>
         <Heading as="h3" variant="section-title">
-          Work
+          What we do
         </Heading>
         <Paragraph>
-          Takuya is a freelance and a full-stack developer based in Osaka with a
-          passion for building digital services/stuff he wants. He has a knack
-          for all things launching products, from planning and designing all the
-          way to solving real-life problems with code. When not online, he loves
-          hanging out with his camera. Currently, he is living off of his own
-          product called{' '}
-          <Link as={NextLink} href="/works/inkdrop" passHref scroll={false}>
-            Inkdrop
-          </Link>
-          . He publishes content for marketing his products and his YouTube
-          channel called &quot;
+          BrandCrafts is a forward-thinking IT company specializing in crafting custom websites, AI-powered solutions, and mobile applications. With a passion for innovation and usability, our team transforms ideas into powerful digital experiences. Whether it&apos;s building seamless user interfaces, deploying intelligent automation, or launching cross-platform apps, we bring brands to life through technology. At BrandCrafts, we don’t just build software — we create solutions that move businesses forward. 
+          Follow us on{' '}
           <Link
             as={NextLink}
-            href="https://www.youtube.com/devaslife"
+            href="https://www.instagram.com/brandcrafts/" // replace with your actual Instagram URL
             passHref
             target="_blank"
           >
-            Dev as Life
-          </Link>
-          &quot; has more than 100k subscribers.
+            Instagram
+          </Link>{' '}
+          to see our latest work and behind-the-scenes projects.
         </Paragraph>
+
         <Box align="center" my={4}>
           <Button
             as={NextLink}
@@ -102,50 +91,35 @@ const Home = () => (
             rightIcon={<ChevronRightIcon />}
             colorScheme="teal"
           >
-            My portfolio
+            Check our portfolio
           </Button>
         </Box>
       </Section>
 
       <Section delay={0.2}>
         <Heading as="h3" variant="section-title">
-          Bio
+          Company Bio
         </Heading>
         <BioSection>
-          <BioYear>1984</BioYear>
-          Born in Osaka (大阪), Japan.
+          <BioYear>2021</BioYear>
+          BrandCrafts was founded with the vision to empower businesses through cutting-edge digital solutions.
         </BioSection>
         <BioSection>
-          <BioYear>2010</BioYear>
-          Completed the Master&apos;s Program in the Graduate School of
-          Information Science at Nara Institute of Science and Technology
-          (奈良先端科学技術大学院大学情報科学研究科修士課程)
+          <BioYear>2022</BioYear>
+          Launched our first line of responsive business websites and mobile apps for local startups.
         </BioSection>
         <BioSection>
-          <BioYear>2010</BioYear>
-          Worked at Yahoo! Japan (ヤフー株式会社入社)
+          <BioYear>2023</BioYear>
+          Expanded into AI development, offering intelligent automation and chatbot services.
         </BioSection>
         <BioSection>
-          <BioYear>2012 to present</BioYear>
-          Working as a freelancer
+          <BioYear>2024</BioYear>
+          Partnered with international clients and introduced scalable cloud-based platforms.
         </BioSection>
-      </Section>
-
-      <Section delay={0.3}>
-        <Heading as="h3" variant="section-title">
-          I ♥
-        </Heading>
-        <Paragraph>
-          Art, Music,{' '}
-          <Link href="https://illust.odoruinu.net/" target="_blank">
-            Drawing
-          </Link>
-          , Playing Drums,{' '}
-          <Link href="https://500px.com/p/craftzdog" target="_blank">
-            Photography
-          </Link>
-          , Leica, Machine Learning
-        </Paragraph>
+        <BioSection>
+          <BioYear>2025</BioYear>
+          BrandCrafts continues to grow as a creative tech studio, delivering innovative web, AI, and mobile solutions worldwide.
+        </BioSection>
       </Section>
 
       <Section delay={0.3}>
@@ -198,23 +172,6 @@ const Home = () => (
             </Link>
           </ListItem>
         </List>
-
-        <SimpleGrid columns={[1, 2, 2]} gap={6}>
-          <GridItem
-            href="https://www.youtube.com/devaslife"
-            title="Dev as Life"
-            thumbnail={thumbYouTube}
-          >
-            My YouTube channel (&gt;200k subs)
-          </GridItem>
-          <GridItem
-            href="https://www.inkdrop.app/"
-            title="Inkdrop"
-            thumbnail={thumbInkdrop}
-          >
-            A Markdown note-taking app
-          </GridItem>
-        </SimpleGrid>
 
         <Heading as="h3" variant="section-title">
           Newsletter
