@@ -32,6 +32,13 @@ const teamMembers = [
     bio: 'Full-stack dev focused on performance and security.',
     techStack: ['Flutter', 'Firebase', 'Next.js'],
     github: "https://github.com/alicemwangi"
+  },
+  {
+    name: 'Ernest Gichichi',
+    image: 'https://img.freepik.com/premium-photo/stylish-man-flat-vector-profile-picture-ai-generated_606187-314.jpg?w=2000',
+    bio: 'Full-stack dev focused on performance and security.',
+    techStack: ['Shopify', 'Frame', 'Figma', 'Wordpress'],
+    github: "https://github.com/alicemwangi"
   }
 ]
 

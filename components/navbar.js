@@ -74,6 +74,7 @@ const Navbar = props => {
           display={{ base: 'none', md: 'flex' }}
           width={{ base: 'full', md: 'auto' }}
           alignItems="center"
+          justifyContent="center"
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
@@ -84,6 +85,9 @@ const Navbar = props => {
           {/* <LinkItem href="https://uses.craftz.dog/">Clients</LinkItem> */}
           <LinkItem as={MenuLink} href="/teams">
                   Our Team
+          </LinkItem>
+          <LinkItem as={MenuLink} href="/services">
+                  Services
           </LinkItem>
           <LinkItem
             target="_blank"
