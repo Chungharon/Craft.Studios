@@ -20,7 +20,7 @@ const Works = () => (
         </Section>
         
         <Section>
-          <WorkGridItem id="sevaria" title="Sevaria" thumbnail={sevaria}>
+          <WorkGridItem id="aleen" title="Allen" thumbnail={sevaria}>
             A Fashion website for a Kenyan fashion designer.
           </WorkGridItem>
         </Section>

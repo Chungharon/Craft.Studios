@@ -20,11 +20,11 @@ const teamMembers = [
     github: "https://github.com/MsFT100"
   },
   {
-    name: 'Carol Wanjiru',
+    name: 'Anitta Vinter',
     image: 'https://img.freepik.com/premium-photo/stylish-man-flat-vector-profile-picture-ai-generated_606187-314.jpg?w=2000',
-    bio: 'Full-stack dev focused on performance and security.',
-    techStack: ['Flutter', 'Firebase', 'Next.js'],
-    github: "https://github.com/alicemwangi"
+    bio: "React Native Developer and Product Designer specializing in system architecture and design. Passionate about creating intuitive user experiences and building scalable applications.",
+    techStack: ['React Native','Figma', 'Firebase', 'React','Payload'],
+    github: "https://github.com/Anittavinter"
   },
   {
     name: 'Carol Wanjiru',
