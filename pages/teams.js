@@ -16,7 +16,9 @@ const teamMembers = [
     name: 'Lennox Mathew',
     image: 'https://img.freepik.com/premium-photo/stylish-man-flat-vector-profile-picture-ai-generated_606187-314.jpg?w=2000',
     bio: 'Backend engineer with a love for scalable APIs.',
-    techStack: ['Node.js', 'Express', 'MongoDB'],
+    techStack: ['Node.js', 'Express', 'MongoDB', 'Django', 'PostgreSQL', 'Python',
+       'Flask','C#', 'ASP.NET', 'SQL Server', 'Firebase', 'Flutter', 'React Native',
+        'React', 'Next.js', 'Java', 'Spring Boot', 'MySQL', 'Redis', 'GraphQL'],
     github: "https://github.com/MsFT100"
   },
   {
