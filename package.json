@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Takuya's website",
   "scripts": {
+    "ESLint": "eslint",
     "dev": "next dev -H 0.0.0.0",
-    "build": "next build",
+    "build": "npm build",
     "start": "next start",
     "prettier": "prettier --write .",
     "lint": "next lint"
@@ -19,7 +20,7 @@
     "@emotion/styled": "^11.11.0",
     "@vercel/analytics": "^1.1.1",
     "framer-motion": "^10.16.4",
-    "next": "^13.5.6",
+    "next": "^15.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
@@ -27,8 +28,9 @@
     "three": "^0.157.0"
   },
   "devDependencies": {
-    "eslint": "^8.52.0",
+    "eslint": "^8.57.1",
     "eslint-config-next": "^13.5.6",
+    "jest": "^29.7.0",
     "prettier": "^3.0.3"
   }
 }
