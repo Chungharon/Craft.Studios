@@ -1,17 +1,17 @@
 {
-  "name": "craftzdog-homepage",
+  "name": "brandcrafts-homepage",
   "version": "1.0.0",
-  "description": "Takuya's website",
+  "description": "brandcraft's website",
   "scripts": {
     "ESLint": "eslint",
     "dev": "next dev -H 0.0.0.0",
-    "build": "npm build",
-    "start": "next start",
+    "build": "npm run build",
+    "start": "npm start",
     "prettier": "prettier --write .",
     "lint": "next lint"
   },
   "keywords": [],
-  "author": "Takuya Matsuyama",
+  "author": "ChungHaron",
   "license": "MIT",
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
