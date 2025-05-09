@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "brandcraft's website",
   "scripts": {
-    "ESLint": "eslint",
     "dev": "next dev -H 0.0.0.0",
-    "build": "npm run build",
-    "start": "npm start",
+    "build": "next build",
+    "start": "next start",
     "prettier": "prettier --write .",
     "lint": "next lint"
   },
