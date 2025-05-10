@@ -16,51 +16,51 @@ import { FaWordpress, FaWrench } from "react-icons/fa";
 import { SiSass } from "react-icons/si";
 const services = [
     {
-      name: 'Security & Hosting',
+      name: 'Security, Hosting & Cloud Solutions',
       icon: HiMiniServerStack, 
-      bio: 'Implementing cloud services and DevOps integration for secure and scalable solutions.',
+      bio: 'We provide secure, scalable hosting with AWS, Azure, and cloud solutions, integrating DevOps best practices for automation, reliability, and optimized performance, ensuring seamless deployment and robust cybersecurity.',
       techStack: [],
     },
     {
-      name: 'E-commerce Solutions',
+      name: 'Expert E-Commerce Solutions for Every Business Model',
       icon: SiShopify,
-      bio: 'Implementing cloud services and DevOps integration for secure and scalable solutions.',
+      bio: 'We create custom e-commerce solutions on Shopify, WooCommerce, and Squarespace, specializing in marketplaces, omnichannel, multi-store, multi-warehouse, multi-tenant, multi-region, member-only, digital product sales, and headless e-commerce for seamless, scalable online shopping.',
       techStack: [],
     },
     {
       name: 'API Integration',
       icon: AiFillApi,
-      bio: 'Implementing cloud services and DevOps integration for secure and scalable solutions.',
+      bio: 'We create dynamic websites and applications by integrating various APIs, ensuring smooth data exchange and enhanced functionality for scalable, high-performing digital solutions.',
       techStack: [],
     },
     {
-      name: 'Custom Web & App Development',
+      name: 'Custom App Development',
       icon: CgWebsite,
-      bio: 'Implementing cloud services and DevOps integration for secure and scalable solutions.',
+      bio: 'Building tailored software solutions designed to meet your unique business requirements, delivering scalable, efficient, and high-performance applications.',
       techStack: [],
     },
     {
       name: 'SEO & Maintenance',
       icon: FaWrench,
-      bio: 'Implementing cloud services and DevOps integration for secure and scalable solutions.',
+      bio: 'Optimizing your website to improve search engine rankings and providing ongoing maintenance to ensure peak performance, security, and up-to-date content.',
       techStack: [],
     },
     {
         name: 'WordPress Sites',
         icon: FaWordpress,
-        bio: 'Implementing cloud services and DevOps integration for secure and scalable solutions.',
+        bio: 'We provide custom WordPress solutions, including website development, e-commerce (WooCommerce), SEO, security, multi-site setups, and headless WordPress, ensuring scalable, high-performance digital experiences.',
         techStack: [],
     },
     {
-        name: 'Web designs & Graphics',
+        name: 'Web Design & Graphic Solutions',
         icon: SiFigma,
-        bio: 'Implementing cloud services and DevOps integration for secure and scalable solutions.',
+        bio: 'We craft stunning, user-friendly websites and impactful graphic designs that elevate brands, combining UI/UX design, branding, custom visuals, and responsive layouts for a seamless digital experience.',
         techStack: [],
     },
     {
-        name: 'Saas & AI Agents',
+        name: 'Saas & AI Agents Solutions',
         icon: SiSass,
-        bio: 'Implementing cloud services and DevOps integration for secure and scalable solutions.',
+        bio: 'We develop scalable SaaS platforms and integrate AI-powered agents to automate workflows, enhance customer interactions, and optimize business operations with intelligent, data-driven solutions.',
         techStack: [],
     }
   ]
