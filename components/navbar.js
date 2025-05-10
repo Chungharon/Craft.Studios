@@ -124,9 +124,10 @@ const Navbar = props => {
                 <MenuItem as={MenuLink} href="/teams">
                   Our Team
                 </MenuItem>
-                <MenuItem as={MenuLink} href="https://uses.craftz.dog/">
-                  Uses
+                <MenuItem as={MenuLink} href="/services">
+                  Services
                 </MenuItem>
+                
                 <MenuItem
                   as={Link}
                   href="https://github.com/Chungharon/brandcraft"
