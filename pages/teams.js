@@ -8,8 +8,10 @@ const teamMembers = [
   {
     name: 'Chungani Huron',
     image: 'https://img.freepik.com/premium-photo/stylish-man-flat-vector-profile-picture-ai-generated_606187-314.jpg?w=2000',
-    bio: 'Frontend developer passionate about clean UI and UX.',
-    techStack: ['React', 'Chakra UI', 'TypeScript'],
+    bio: 'Software & DevOps Engineer passionate about automatomation deployment, monitoring, and security for cloud-based applications, integrating CI/CD pipelines.',
+    techStack: ['Node.js', 'K8s', 'MongoDB', 'Next.js', 'PostgreSQL', 'Javascript',
+       'AdoniJs', 'AWS', 'Minikube', 'Docker', 'Kubernetes',
+        'Heroku', 'Ansible', 'Prometheus', 'Linux', 'BashScript', 'Jenkins', 'GitLab'],
     github: "https://github.com/Chungharon"
   },
   {
@@ -24,24 +26,39 @@ const teamMembers = [
   {
     name: 'Anitta Vinter',
     image: 'https://img.freepik.com/premium-photo/stylish-man-flat-vector-profile-picture-ai-generated_606187-314.jpg?w=2000',
-    bio: "React Native Developer and Product Designer specializing in system architecture and design. Passionate about creating intuitive user experiences and building scalable applications.",
-    techStack: ['React Native','Figma', 'Firebase', 'React','Payload'],
+    bio: "Product Designer specializing in system architecture and design. Passionate about creating intuitive user experiences and building scalable applications.",
+    techStack: ['Node.js', 'Express', 'WebFlow',
+       'Miro','Framer', 'Figma', 'Firebase', 'React Native',
+        'React', 'Next.js', 'Spring Boot','GraphQL'],
     github: "https://github.com/Anittavinter"
   },
   {
     name: 'Carol Wanjiru',
     image: 'https://img.freepik.com/premium-photo/stylish-man-flat-vector-profile-picture-ai-generated_606187-314.jpg?w=2000',
-    bio: 'Full-stack dev focused on performance and security.',
-    techStack: ['Flutter', 'Firebase', 'Next.js'],
+    bio: 'Full-stack dev focused on Management, optimization, and securing databases, ensuring performance, backups, and data integrity.',
+    techStack: ['Node.js', 'Express', 'MongoDB', 'Django', 'PostgreSQL', 'Python',
+       'Flask','ASP.NET', 'SQL Server', 'Firebase',
+        'React', 'Next.js', 'MySQL', 'GraphQL'],
     github: "https://github.com/alicemwangi"
   },
   {
     name: 'Ernest Gichichi',
     image: 'https://img.freepik.com/premium-photo/stylish-man-flat-vector-profile-picture-ai-generated_606187-314.jpg?w=2000',
-    bio: 'Full-stack dev focused on performance and security.',
-    techStack: ['Shopify', 'Frame', 'Figma', 'Wordpress'],
+    bio: 'Works on both front-end and back-end development, handling Shopify, WordPress, and other web technologies for complete solutions.',
+    techStack: ['Figma', 'Framer', 'MongoDB', 'SquarSpace', 'Shopify', 'WordPress',
+       'WooCommerce','Miro', 'Saas', 'AI Agent', 'LLM',
+        'React', 'Next.js','MySQL','Blockchain'],
     github: "https://github.com/alicemwangi"
-  }
+  },
+  {
+    name: 'Willson Habakuk',
+    image: 'https://img.freepik.com/premium-photo/stylish-man-flat-vector-profile-picture-ai-generated_606187-314.jpg?w=2000',
+    bio: 'Develops Android apps while leveraging cloud services for backend, storage, and AI-powered features.',
+    techStack: ['Node.js', 'Express', 'MongoDB', 'Kotlin', 'PostgreSQL', 'Python',
+       'Wordpress','AWS', 'GCP', 'Firebase',
+        'React', 'Next.js', 'MySQL', 'GraphQL'],
+    github: "https://github.com/alicemwangi"
+  },
 ]
 
 const Teams = () => (
