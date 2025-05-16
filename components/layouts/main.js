@@ -18,7 +18,7 @@ const Main = ({ children, router }) => {
         <meta name="description" content="BrandCraft Designs" />
         <meta name="author" content="BrandCraft Designs" />
         <meta name="author" content="BrandCraft Designs" />
-        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="brandcraft_logo.png" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <meta name="twitter:title" content="Takuya Matsuyama" />
         <meta name="twitter:card" content="summary_large_image" />

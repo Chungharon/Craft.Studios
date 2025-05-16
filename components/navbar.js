@@ -89,6 +89,9 @@ const Navbar = props => {
           <LinkItem as={MenuLink} href="/services">
                   Services
           </LinkItem>
+          <LinkItem as={MenuLink} href="/pricing">
+                  Pricing
+          </LinkItem>
           <LinkItem
             target="_blank"
             href="https://github.com/Chungharon/brandcraft"
@@ -126,6 +129,9 @@ const Navbar = props => {
                 </MenuItem>
                 <MenuItem as={MenuLink} href="/services">
                   Services
+                </MenuItem>
+                <MenuItem as={MenuLink} href="/pricing">
+                  Pricing
                 </MenuItem>
                 
                 <MenuItem

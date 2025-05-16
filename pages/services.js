@@ -2,12 +2,12 @@ import {
   Container,
   Heading,
   Box, SimpleGrid ,
-  useColorModeValue
+  useColorModeValue, Link as ChakraLink, Divider, Button
 } from '@chakra-ui/react'
 
-import Layout from '../components/layouts/article'
-import Section from '../components/section'
-import ServiceCard from '../components/service-card'
+import Layout from '../components/layouts/article';
+import Section from '../components/section';
+import ServiceCard from '../components/service-card';
 import { HiMiniServerStack } from "react-icons/hi2";
 import { SiFigma, SiShopify } from "react-icons/si";
 import { CgWebsite } from "react-icons/cg";
@@ -65,7 +65,7 @@ const services = [
     }
   ]
 
-
+const phone = '254701208343'
 const Services = () => (
   <Layout>
     <Container>
@@ -83,6 +83,7 @@ const Services = () => (
 
       <Box display={{ md: 'flex' }}>
         <Box flexGrow={1}>
+          
             <Heading as="h3" fontSize={20} mb={4}>
             What We Offer
             </Heading>
@@ -110,6 +111,17 @@ const Services = () => (
         >
         </Box>
       </Box>
+
+      <Divider/>
+      <ChakraLink
+          href={`https://wa.me/${phone}`}
+          isExternal
+          style={{ textDecoration: 'none' }}
+          >
+          <Button colorScheme="teal" variant="outline" width="100%">
+              Contact Us
+          </Button>
+      </ChakraLink>
 
       
     </Container>

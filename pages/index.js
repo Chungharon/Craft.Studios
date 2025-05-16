@@ -56,7 +56,7 @@ const Home = () => (
             overflow="hidden"
           >
             <Image
-              src="/favicon.ico"
+              src="/brandcraft_logo.png"
               alt="Profile image"
               width="100"
               height="100"

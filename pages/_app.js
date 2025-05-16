@@ -4,6 +4,8 @@ import { AnimatePresence } from 'framer-motion'
 import Chakra from '../components/chakra'
 import Payhip from '../components/payhip'
 import { Analytics } from '@vercel/analytics/react'
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual'
