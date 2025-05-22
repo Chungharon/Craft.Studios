@@ -3,8 +3,8 @@ import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { WorkGridItem } from '../components/grid-item'
 import sevaria from '../works/sevaria_eyecatch.png';
-
-
+import hue from '../works/hue.png';
+import omoro from '../works/msOmoro.png';
 const Works = () => (
   <Layout title="Works">
     <Container>
@@ -20,8 +20,13 @@ const Works = () => (
         </Section>
         
         <Section>
-          <WorkGridItem id="aleen" title="Allen" thumbnail={sevaria}>
-            A Fashion website for a Kenyan fashion designer.
+          <WorkGridItem id="hue" title="Hue" thumbnail={hue}>
+            This fashion webiste for one of our clients coming soon style.
+          </WorkGridItem>
+        </Section>
+        <Section>
+          <WorkGridItem id="#" title="MsOmoro" thumbnail={omoro}>
+            This is a Airbnb welcome page to guide guests.
           </WorkGridItem>
         </Section>
       </SimpleGrid>
