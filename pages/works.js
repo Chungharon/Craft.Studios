@@ -5,6 +5,9 @@ import { WorkGridItem } from '../components/grid-item'
 import sevaria from '../works/sevaria_eyecatch.png';
 import hue from '../works/hue.png';
 import omoro from '../works/msOmoro.png';
+import sandsite from '../works/home_furniture.png';
+import furnituresite from '../works/sandsite.png';
+
 const Works = () => (
   <Layout title="Works">
     <Container>
@@ -29,6 +32,19 @@ const Works = () => (
             This is a Airbnb welcome page to guide guests.
           </WorkGridItem>
         </Section>
+        <Section delay={0.3}>
+          <WorkGridItem id="sevaria" thumbnail={furnituresite} title="Sevaria">
+            A funiture Display website.
+          </WorkGridItem>
+        </Section>
+        {/* https://betterthansand.com/ */}
+        <Section delay={0.3}>
+          <WorkGridItem id="sevaria" thumbnail={sandsite} title="Sevaria">
+            A sand bag selling site.
+          </WorkGridItem>
+        </Section>
+        {/* https://tropicalfurnitures.com/ */}
+      
       </SimpleGrid>
 
       <Section delay={0.2}>
@@ -86,6 +102,12 @@ const Works = () => (
             A Fashion website for a Kenyan fashion designer.
           </WorkGridItem>
         </Section>
+        <Section delay={0.3}>
+          <WorkGridItem id="sevaria" thumbnail={sevaria} title="Sevaria">
+            A Fashion website for a Kenyan fashion designer.
+          </WorkGridItem>
+        </Section>
+        
       </SimpleGrid>
     </Container>
   </Layout>
