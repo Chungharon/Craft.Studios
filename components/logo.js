@@ -33,7 +33,7 @@ const Logo = () => {
           fontWeight="bold"
           ml={3}
         >
-          BrandCrafts
+          Craft.Studio
         </Text>
       </LogoBox>
 
