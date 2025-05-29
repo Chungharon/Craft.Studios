@@ -59,6 +59,21 @@ const teamMembers = [
         'React', 'Next.js', 'MySQL', 'GraphQL'],
     github: "https://github.com/alicemwangi"
   },
+  {
+    name: 'Vincent Aol',
+    image: 'https://img.freepik.com/premium-photo/stylish-man-flat-vector-profile-picture-ai-generated_606187-314.jpg?w=2000',
+    bio: 'Backend developer focusing on database managment, and API powered features.',
+    techStack: ['Node.js', 'Express', 'Java', 'MySQL', 'Python',
+       'Django'],
+    github: "https://github.com/aolobiero"
+  },
+  {
+    name: 'Telclan Creatives',
+    image: 'https://img.freepik.com/premium-photo/stylish-man-flat-vector-profile-picture-ai-generated_606187-314.jpg?w=2000',
+    bio: 'Works on both front-end and back-end development, handling Shopify, WordPress, and other web technologies for complete solutions.',
+    techStack: ['Adobe Illustrator', 'Photoshop', 'Figma', 'Canva', 'Miro'],
+    github: "https://github.com/alicemwangi"
+  },
 ]
 
 const Teams = () => (

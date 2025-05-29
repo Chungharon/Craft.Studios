@@ -14,7 +14,7 @@ import Paragraph from '../components/paragraph'
 import { BioSection, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
-import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from 'react-icons/io5'
+import { IoLogoInstagram, IoLogoGithub, IoLogoLaravel } from 'react-icons/io5'
 import Image from 'next/image'
 
 const Home = () => (
@@ -28,16 +28,19 @@ const Home = () => (
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         css={{ backdropFilter: 'blur(10px)' }}
       >
-        Welcome to <strong>BrandCrafts</strong> — Crafting innovative digital portfolios and creative solutions for your brand&apos;s success.
+        Welcome to <strong>Craft.Studio</strong> — Crafting innovative digital portfolios and creative solutions for your brand&apos;s success.
       </Box>
 
 
       <Box display={{ md: 'flex' }}>
         <Box flexGrow={1}>
           <Heading as="h2" variant="page-title">
-            BrandCrafts
+            Craft.Studio
           </Heading>
-          <p>Digital Creative Company ( Websites / Mobile Development / AI )</p>
+          <p>We are a forward-thinking Digital Creative Agency specializing in Website Development, 
+            Mobile Applications, and cutting-edge AI integration. 
+            Our mission is to empower businesses with seamless digital solutions that elevate user experience, 
+            streamline operations, and drive growth.</p>
         </Box>
         <Box
           flexShrink={0}
@@ -70,11 +73,11 @@ const Home = () => (
           What we do
         </Heading>
         <Paragraph>
-          BrandCrafts is a forward-thinking IT company specializing in crafting custom websites, AI-powered solutions, and mobile applications. With a passion for innovation and usability, our team transforms ideas into powerful digital experiences. Whether it&apos;s building seamless user interfaces, deploying intelligent automation, or launching cross-platform apps, we bring brands to life through technology. At BrandCrafts, we don’t just build software — we create solutions that move businesses forward. 
+          We build custom websites and mobile apps, and integrate AI agents—from customer support to sales, bookings, and email marketing—into new or existing platforms with full product management.
           Follow us on{' '}
           <Link
             as={NextLink}
-            href="https://www.instagram.com/brandcrafts/" // replace with your actual Instagram URL
+            href="https://www.instagram.com/craft.studio/" // replace with your actual Instagram URL
             passHref
             target="_blank"
           >
@@ -102,7 +105,7 @@ const Home = () => (
         </Heading>
         <BioSection>
           <BioYear>2021</BioYear>
-          BrandCrafts was founded with the vision to empower businesses through cutting-edge digital solutions.
+          Craft.Studio was founded with the vision to empower businesses through cutting-edge digital solutions.
         </BioSection>
         <BioSection>
           <BioYear>2022</BioYear>
@@ -118,7 +121,7 @@ const Home = () => (
         </BioSection>
         <BioSection>
           <BioYear>2025</BioYear>
-          BrandCrafts continues to grow as a creative tech studio, delivering innovative web, AI, and mobile solutions worldwide.
+          Craft.Studio continues to grow as a creative tech studio, delivering innovative web, AI, and mobile solutions worldwide.
         </BioSection>
       </Section>
 
@@ -139,29 +142,29 @@ const Home = () => (
             </Link>
           </ListItem>
           <ListItem>
-            <Link href="https://twitter.com/inkdrop_app" target="_blank">
+            <Link href="https://www.upwork.com/agencies/1762548676078223360/" target="_blank">
               <Button
                 variant="ghost"
                 colorScheme="teal"
-                leftIcon={<IoLogoTwitter />}
+                leftIcon={<IoLogoLaravel />}
               >
-                @inkdrop_app (English)
+                @upwork (English)
               </Button>
             </Link>
           </ListItem>
           <ListItem>
-            <Link href="https://x.com/logout" target="_blank">
+            <Link href="https://www.instagram.com/logout" target="_blank">
               <Button
                 variant="ghost"
                 colorScheme="teal"
-                leftIcon={<IoLogoTwitter />}
+                leftIcon={<IoLogoInstagram />}
               >
-                @Chungharon (Lacheln)
+                @__ngairaharon (Lacheln)
               </Button>
             </Link>
           </ListItem>
           <ListItem>
-            <Link href="https://instagram.com/craftzdog" target="_blank">
+            <Link href="https://www.instagram.com/gichichii/" target="_blank">
               <Button
                 variant="ghost"
                 colorScheme="teal"

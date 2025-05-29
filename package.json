@@ -27,7 +27,7 @@
     "sharp": "^0.34.1",
     "slick-carousel": "^1.8.1",
     "three": "^0.157.0",
-    "vercel": "^41.7.3"
+    "vercel": "^25.2.0"
   },
   "devDependencies": {
     "eslint": "^8.57.1",

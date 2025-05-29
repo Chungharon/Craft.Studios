@@ -52,7 +52,7 @@ const services = [
         techStack: [],
     },
     {
-        name: 'Web Design & Graphic Solutions',
+        name: 'Design & Graphic Solutions',
         icon: SiFigma,
         bio: 'We craft stunning, user-friendly websites and impactful graphic designs that elevate brands, combining UI/UX design, branding, custom visuals, and responsive layouts for a seamless digital experience.',
         techStack: [],
@@ -65,7 +65,7 @@ const services = [
     }
   ]
 
-const phone = '254701208343'
+const phone = '254719485838'
 const Services = () => (
   <Layout>
     <Container>
@@ -122,8 +122,6 @@ const Services = () => (
               Contact Us
           </Button>
       </ChakraLink>
-
-      
     </Container>
   </Layout>
 )
