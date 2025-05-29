@@ -5,8 +5,8 @@ import { WorkGridItem } from '../components/grid-item'
 import sevaria from '../works/sevaria_eyecatch.png';
 import hue from '../works/hue.png';
 import omoro from '../works/msOmoro.png';
-import sandsite from '../works/home_furniture.png';
-import furnituresite from '../works/sandsite.png';
+import furnituresite from '../works/home_furniture.png';
+import sandsite from '../works/sandsite.png';
 
 const Works = () => (
   <Layout title="Works">
@@ -33,13 +33,13 @@ const Works = () => (
           </WorkGridItem>
         </Section>
         <Section delay={0.3}>
-          <WorkGridItem id="sevaria" thumbnail={furnituresite} title="Sevaria">
+          <WorkGridItem id="sevaria" thumbnail={furnituresite} title="Tropical Furnitures">
             A funiture Display website.
           </WorkGridItem>
         </Section>
         {/* https://betterthansand.com/ */}
         <Section delay={0.3}>
-          <WorkGridItem id="sevaria" thumbnail={sandsite} title="Sevaria">
+          <WorkGridItem id="sevaria" thumbnail={sandsite} title="Better Than Sand">
             A sand bag selling site.
           </WorkGridItem>
         </Section>
@@ -47,7 +47,7 @@ const Works = () => (
       
       </SimpleGrid>
 
-      <Section delay={0.2}>
+      {/* <Section delay={0.2}>
         <Divider my={6} />
 
         <Heading as="h3" fontSize={20} mb={4}>
@@ -76,9 +76,9 @@ const Works = () => (
             A Fashion website for a Kenyan fashion designer.
           </WorkGridItem>
         </Section>
-      </SimpleGrid>
+      </SimpleGrid> */}
 
-      <Section delay={0.4}>
+      {/* <Section delay={0.4}>
         <Divider my={6} />
 
         <Heading as="h3" fontSize={20} mb={4}>
@@ -108,7 +108,7 @@ const Works = () => (
           </WorkGridItem>
         </Section>
         
-      </SimpleGrid>
+      </SimpleGrid> */}
     </Container>
   </Layout>
 )

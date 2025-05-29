@@ -18,15 +18,15 @@ const Main = ({ children, router }) => {
         <meta name="description" content="BrandCraft Designs" />
         <meta name="author" content="BrandCraft Designs" />
         <meta name="author" content="BrandCraft Designs" />
-        <link rel="apple-touch-icon" href="brandcraft_logo.png" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        <meta name="twitter:title" content="Takuya Matsuyama" />
+        <meta name="twitter:title" content="BrandCraft Designs" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@craftzdog" />
         <meta name="twitter:creator" content="@craftzdog" />
         <meta name="twitter:image" content="https://www.craftz.dog/card.png" />
         <meta property="og:site_name" content="BrandCraft Designs" />
-        <meta name="og:title" content="Takuya Matsuyama" />
+        <meta name="og:title" content="BrandCraft Designs" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.craftz.dog/card.png" />
         <title>BrandCraft Designs - Homepage</title>
