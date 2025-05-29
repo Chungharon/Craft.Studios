@@ -77,7 +77,7 @@ const Home = () => (
           Follow us on{' '}
           <Link
             as={NextLink}
-            href="https://www.instagram.com/craft.studio/" // replace with your actual Instagram URL
+            href=" " // replace with your actual Instagram URL
             passHref
             target="_blank"
           >
