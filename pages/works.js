@@ -1,8 +1,7 @@
-import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
+import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { WorkGridItem } from '../components/grid-item'
-import sevaria from '../works/sevaria_eyecatch.png';
 import hue from '../works/hue_screenshot.png';
 import omoro from '../works/minimal_screenshot.png';
 import furnituresite from '../works/furnitures_screenshot.png';
