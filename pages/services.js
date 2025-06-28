@@ -2,7 +2,7 @@ import {
   Container,
   Heading,
   Box, SimpleGrid ,
-  useColorModeValue, Link as ChakraLink, Divider, Button
+  useColorModeValue, Divider
 } from '@chakra-ui/react'
 
 import Layout from '../components/layouts/article';
@@ -65,10 +65,9 @@ const services = [
     }
   ]
 
-const phone = '254719485838'
 const Services = () => (
   <Layout>
-    <Container>
+    <Container pb={0}>
       <Box
         borderRadius="lg"
         mb={6}
@@ -111,17 +110,7 @@ const Services = () => (
         >
         </Box>
       </Box>
-
-      <Divider/>
-      <ChakraLink
-          href={`https://wa.me/${phone}`}
-          isExternal
-          style={{ textDecoration: 'none' }}
-          >
-          <Button colorScheme="teal" variant="outline" width="100%">
-              Contact Us
-          </Button>
-      </ChakraLink>
+      <Divider my={8} />
     </Container>
   </Layout>
 )

@@ -2,19 +2,12 @@ import {
   Container,
   Heading,
   Box, Link as ChakraLink,
-  useColorModeValue, Divider, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Button
+  useColorModeValue, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Button, Text
 } from '@chakra-ui/react'
 
 import Layout from '../components/layouts/article';
 import Section from '../components/section';
-import PricingCard from '../components/pricing-card';
-import { HiMiniServerStack } from "react-icons/hi2";
-import { SiFigma, SiShopify } from "react-icons/si";
-import { CgWebsite } from "react-icons/cg";
-import { AiFillApi } from "react-icons/ai";
-import { FaWordpress, FaWrench } from "react-icons/fa";
-import { SiSass } from "react-icons/si";
-import Slider from 'react-slick'
+import Paragraph from '../components/paragraph';
 
 const phone = '254701208343'
   //faqs
@@ -41,93 +34,9 @@ const phone = '254701208343'
     }
   ];
 
-  //pricing
-  const pricing = [
-  {
-    name: 'Security, Hosting & Cloud Solutions',
-    icon: HiMiniServerStack,
-    bio: 'We provide secure, scalable hosting...',
-    price: '$199/month',
-    features: ['AWS & Azure Setup', 'Daily Backups', 'DevOps Integration']
-  },
-  {
-    name: 'Expert E-Commerce Solutions',
-    icon: SiShopify,
-    bio: 'Custom e-commerce on Shopify, WooCommerce...',
-    price: '$299/month',
-    features: ['Multi-store Setup', 'Omnichannel Support', 'Headless Commerce']
-  },
-  {
-    name: 'API Integration',
-    icon: AiFillApi,
-    bio: 'We integrate APIs for dynamic features...',
-    price: '$149/project',
-    features: ['REST & GraphQL', 'Third-party API Integration', 'Secure Endpoints']
-  },
-  {
-    name: 'Custom App Development',
-    icon: CgWebsite,
-    bio: 'Tailored software solutions...',
-    price: '$499/project',
-    features: ['Full Stack Dev', 'Mobile-First Design', 'High Scalability']
-  },
-  {
-    name: 'SEO & Maintenance',
-    icon: FaWrench,
-    bio: 'Improve rankings and maintain your site...',
-    price: '$99/month',
-    features: ['SEO Optimization', 'Monthly Updates', 'Security Patching']
-  },
-  {
-    name: 'WordPress Sites',
-    icon: FaWordpress,
-    bio: 'Custom WordPress sites with WooCommerce...',
-    price: '$249/project',
-    features: ['Custom Themes', 'WooCommerce', 'SEO & Security']
-  },
-  {
-    name: 'Web Design & Graphic Solutions',
-    icon: SiFigma,
-    bio: 'Stunning and responsive designs...',
-    price: '$199/project',
-    features: ['UI/UX Design', 'Branding', 'Responsive Layouts']
-  },
-  {
-    name: 'SaaS & AI Agents',
-    icon: SiSass,
-    bio: 'SaaS platform and AI agent development',
-    price: '$399/month',
-    features: ['Multi-tenant SaaS', 'AI Workflow Automation', 'User Dashboards']
-  }
-]
-
-// slider settings
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1, // Default for large screens
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 4
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1
-      }
-    }
-  ]
-}
-
-
 const Pricing = () => (
   <Layout>
-    <Container overflow={"hidden"}>
+    <Container overflow="hidden">
       <Box
         borderRadius="lg"
         maxW="container.lg"
@@ -137,77 +46,57 @@ const Pricing = () => (
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         css={{ backdropFilter: 'blur(10px)' }}
       >
-        Building Beyond <strong>Boundaries</strong> — Creating tailored web and app experiences designed to grow with your business and captivate your audience.
+        <Text fontSize="lg">
+          Building Beyond <strong>Craft.Studio</strong> — Creating tailored web and app experiences designed to grow with your business and captivate your audience.
+        </Text>
       </Box>
 
-      <Box display={{ md: 'flex' }} mt={6} maxW="100%">
-        <Box flexGrow={1}>
-          <Heading as="h3" fontSize={20} mt={10} mb={4}>
-            Pricing Packages
+      <Section delay={0.9}>
+        <Box mt={12} mb={16}>
+          <Heading as="h3" variant="section-title">
+            Frequently Asked Questions
           </Heading>
 
-          <Section delay={0.7}>
-            <Box px={2} maxW="container.xl"
-                >
-                <Slider {...settings}>
-                {pricing.map((service, index) => (
-                    <Box key={index} px={2}>
-                    <PricingCard
-                        name={service.name}
-                        price={service.price}
-                        features={service.features}
-                    />
-                    </Box>
-                ))}
-                </Slider>
-            </Box>
-            </Section>
-
-
-
-          </Box>
+          <Accordion allowToggle mt={6}>
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} mb={4}>
+                <AccordionButton>
+                  <Box flex="1" textAlign="left">
+                    <Text fontSize="md" fontWeight="medium">
+                      {faq.question}
+                    </Text>
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+                <AccordionPanel pb={4}>
+                  <Paragraph>
+                    {faq.answer}
+                  </Paragraph>
+                </AccordionPanel>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </Box>
-        
-        <Divider/>
-        <ChakraLink
+      </Section>
+
+      <Section delay={1.0}>
+        <Box align="center" my={12}>
+          <ChakraLink
             href={`https://wa.me/${phone}`}
             isExternal
             style={{ textDecoration: 'none' }}
+          >
+            <Button
+              colorScheme="teal"
+              size="lg"
+              px={8}
+              py={4}
             >
-            <Button colorScheme="teal" variant="outline" width="100%">
-                Contact Us
+              Contact Us
             </Button>
-        </ChakraLink>
-        <Divider/>
-        <Box display={{ md: 'flex' }} mt={6}>
-            <Box flexGrow={1}>
-            <Heading as="h3" fontSize={20} mb={4}>
-                Frequently Asked Questions
-            </Heading>
-
-            <Accordion allowToggle>
-                
-                {faqs.map((faq, index) => (
-                <AccordionItem key={index}>
-                    <AccordionButton>
-                    <Box flex="1" textAlign="left">
-                        {faq.question}
-                    </Box>
-                    <AccordionIcon />
-                    </AccordionButton>
-                    <AccordionPanel pb={4}>
-                    {faq.answer}
-                    </AccordionPanel>
-                </AccordionItem>
-                ))}
-            </Accordion>
-
-            </Box>
-
+          </ChakraLink>
         </Box>
-
-        
-      
+      </Section>
     </Container>
   </Layout>
 )

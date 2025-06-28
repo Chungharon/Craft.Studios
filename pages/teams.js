@@ -1,5 +1,5 @@
 // pages/teams.js
-import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
+import { Heading, SimpleGrid, Box } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import TeamCard from '../components/team-card'
@@ -78,8 +78,8 @@ const teamMembers = [
 
 const Teams = () => (
   <Layout title="Our Team">
-    <Container>
-      <Heading as="h3" fontSize={20} mb={4}>
+    <Box pb={6}>
+      <Heading as="h2" variant="section-title">
         Meet the Team
       </Heading>
 
@@ -97,7 +97,7 @@ const Teams = () => (
           ))}
         </SimpleGrid>
       </Section>
-    </Container>
+    </Box>
   </Layout>
 )
 

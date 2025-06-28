@@ -15,6 +15,7 @@ import {
   useColorModeValue, // This hook needs to be at the top level
   CloseButton,
 } from '@chakra-ui/react';
+import theme from '../lib/theme'; // Import your custom theme
 
 export default function Chatbot() {
   const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat();
@@ -23,22 +24,16 @@ export default function Chatbot() {
   // Create a ref for the message container
   const messagesEndRef = useRef(null);
 
-  // --- ALL useColorModeValue calls moved to the top level, before any conditional rendering ---
-  const userMessageBg = useColorModeValue('blue.100', 'blue.800');
-  const assistantMessageBg = useColorModeValue('gray.200', 'gray.600');
-  const chatBg = useColorModeValue('gray.50', 'gray.700');
+  // --- Theme-based color values ---
+  const chatBg = useColorModeValue('#f0e7db', '#202023');
+  const assistantMessageBg = useColorModeValue('gray.100', 'gray.700');
   const inputBg = useColorModeValue('white', 'gray.800');
-  const inputBorder = useColorModeValue('gray.300', 'gray.600');
-  const sendButtonColor = useColorModeValue('blue.600', 'blue.400');
-  const sendButtonHoverColor = useColorModeValue('blue.700', 'blue.500');
-
-  // Define colors that were previously inside the conditional block
-  const chatWindowBg = useColorModeValue('white', 'gray.800'); // This was bg={useColorModeValue('white', 'gray.800')}
-  const chatWindowBorderColor = useColorModeValue('gray.200', 'gray.700'); // This was borderColor={useColorModeValue('gray.200', 'gray.700')}
-  const initialMessageColor = useColorModeValue('gray.500', 'gray.400'); // This was color={useColorModeValue('gray.500', 'gray.400')}
-  const loadingTextColor = useColorModeValue('gray.700', 'gray.300'); // This was color={useColorModeValue('gray.700', 'gray.300')}
-  const formBorderColor = useColorModeValue('gray.200', 'gray.700'); // This was borderColor={useColorModeValue('gray.200', 'gray.700')}
-
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
+  const iconColor = useColorModeValue('gray.900', 'gray.100');
+  const headerBg = useColorModeValue('gray.50', 'gray.900');
+  const headerColor = useColorModeValue('gray.800', 'whiteAlpha.900');
+  const placeholderColor = useColorModeValue('gray.400', 'gray.500');
+  const buttonColorScheme = 'teal';
 
   const toggleChatbot = () => {
     setIsOpen(!isOpen);
@@ -46,188 +41,147 @@ export default function Chatbot() {
 
   // Effect to scroll to the bottom whenever messages change or the chatbot opens
   useEffect(() => {
-    if (messagesEndRef.current) {
-      // Use setTimeout to ensure the DOM has updated before scrolling
-      // This is often necessary with dynamically added content or streams
-      setTimeout(() => {
-        messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
-      }, 100); // A small delay, adjust if needed
+    if (isOpen && messagesEndRef.current) {
+      messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
     }
-  }, [messages, isOpen]); // Depend on messages and isOpen
+  }, [messages, isOpen]);
 
   return (
     // Main container for the chatbot, positioned at the bottom right.
-    // Increased z-index to ensure it appears on top of other page elements.
-    <Box
-      position="fixed"
-      bottom="6"
-      right="6"
-      zIndex="1000"
-    >
+    <Box position="fixed" bottom="6" right="6" zIndex="1000">
       {/* Chatbot toggle button */}
-      <Button
-        onClick={toggleChatbot}
-        colorScheme="blue" // Chakra UI's way of setting color themes
-        borderRadius="full"
-        p="4" // Equivalent to Tailwind's p-4
-        shadow="lg" // Chakra UI shadow
-        _hover={{ bg: sendButtonHoverColor, transform: 'scale(1.05)' }} // Chakra UI hover effects
-        _focus={{ boxShadow: 'outline' }} // Chakra UI focus effects
-        transition="all 0.3s ease-in-out" // Explicit transition for smooth animations
-        display="flex"
-        alignItems="center"
-        gap="2"
-        fontSize="lg"
-        fontWeight="medium"
-        letterSpacing="wide"
-      >
-        <IoChatbox size="28px" /> {/* react-icons size prop */}
-        <Text display={{ base: 'none', sm: 'inline' }}>Message Us</Text> {/* Chakra's responsive display */}
-      </Button>
+      {!isOpen && (
+        <Button
+          onClick={toggleChatbot}
+          colorScheme={buttonColorScheme}
+          borderRadius="full"
+          p={4}
+          shadow="lg"
+          _hover={{ transform: 'scale(1.1)' }}
+          _focus={{ boxShadow: 'outline' }}
+          transition="transform 0.2s ease-in-out"
+          leftIcon={<IoChatbox size="24px" />}
+        >
+          Chat with Us
+        </Button>
+      )}
 
       {/* Chat window, conditionally rendered based on isOpen state */}
       {isOpen && (
         <Flex
-          position="absolute"
-          bottom="20"
-          right="0"
-          width={{ base: '90vw', sm: '320px' }} // Responsive width
-          height="420px"
-          bg={chatWindowBg} // Use the predefined color
+          width={{ base: '90vw', sm: '350px' }}
+          height="500px"
+          bg={chatBg}
           borderRadius="xl"
           shadow="2xl"
           flexDirection="column"
           overflow="hidden"
           borderWidth="1px"
-          borderColor={chatWindowBorderColor} // Use the predefined color
-          // Applying a direct transform and transition for smooth pop-in
-          transform="scale(0.95)"
-          transformOrigin="bottom right"
-          transition="transform 0.3s ease-out, opacity 0.3s ease-out"
+          borderColor={borderColor}
           sx={{
-            animation: 'fade-in-up 0.3s ease-out forwards',
-            '@keyframes fade-in-up': {
-              '0%': { opacity: 0, transform: 'translateY(20px) scale(0.95)' },
-              '100%': { opacity: 1, transform: 'translateY(0) scale(1)' },
+            '@keyframes-pop-in': {
+              from: { transform: 'scale(0.9)', opacity: 0 },
+              to: { transform: 'scale(1)', opacity: 1 }
             },
+            animation: 'keyframes-pop-in 0.3s ease-out forwards',
+            transformOrigin: 'bottom right'
           }}
         >
           {/* Chat header */}
           <Flex
-            bgGradient="linear(to-r, blue.700, purple.700)"
-            color="white"
-            p="4"
-            textAlign="center"
-            fontSize="xl"
-            fontWeight="semibold"
-            borderTopRadius="xl"
-            shadow="md"
+            bg={headerBg}
+            color={headerColor}
+            p={4}
             alignItems="center"
             justifyContent="space-between"
+            borderBottomWidth="1px"
+            borderColor={borderColor}
           >
-            <Text flex="1">Company AI Assistant</Text> {/* Flex 1 to push close button to right */}
+            <Text fontFamily="'M PLUS Rounded 1c', sans-serif" fontWeight="bold" fontSize="lg">
+              AI Assistant
+            </Text>
             <CloseButton
               onClick={toggleChatbot}
-              color="white"
-              _hover={{ color: 'gray.200' }}
-              aria-label="Close chat"
+              _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
             />
           </Flex>
 
           {/* Message display area */}
           <VStack
-            ref={messagesEndRef} // Attach the ref here
+            ref={messagesEndRef}
             flex="1"
-            p="4"
+            p={4}
             overflowY="auto"
-            bg={chatBg}
-            alignItems="flex-start" // Align messages to the left by default
-            spacing="4" // Spacing between messages
+            spacing={4}
+            alignItems="stretch"
           >
-            {messages.length > 0 ? (
-              messages.map(m => (
-                <Box
-                  key={m.id}
-                  p="3"
-                  borderRadius="2xl"
-                  shadow="sm"
-                  maxWidth="85%"
-                  bg={m.role === 'user' ? userMessageBg : assistantMessageBg}
-                  alignSelf={m.role === 'user' ? 'flex-end' : 'flex-start'} // Align user messages to right, assistant to left
-                  borderBottomRightRadius={m.role === 'user' ? 'none' : '2xl'} // Different corner for user/assistant
-                  borderBottomLeftRadius={m.role === 'user' ? '2xl' : 'none'} // Different corner for user/assistant
-                >
-                  <Text fontWeight="semibold" mb="1" fontSize="sm">
-                    {m.role === 'user' ? 'You:' : 'Assistant:'}
-                  </Text>
-                  <Text fontSize="sm">{m.content}</Text>
-                </Box>
-              ))
-            ) : (
-              <Box textAlign="center" color={initialMessageColor} fontSize="base" mt="10" p="4" width="full">
-                👋 Hi there! I&apos;m your AI Assistant. How can I help you today regarding our company&apos;s services?
+            {messages.length === 0 && (
+              <Box textAlign="center" color={placeholderColor} mt={10}>
+                Ask me anything about our services!
               </Box>
             )}
-            {/* Loading indicator */}
-            {isLoading && (
-              <Box
-                p="3"
-                borderRadius="2xl"
-                bg={assistantMessageBg}
-                color={loadingTextColor} // Use the predefined loadingTextColor
-                shadow="sm"
-                alignSelf="flex-start"
-                maxWidth="85%"
-                borderBottomLeftRadius="none"
-                animation="pulse 1.5s infinite" // Basic CSS pulse animation
-                sx={{
-                  '@keyframes pulse': {
-                    '0%, 100%': { opacity: 1 },
-                    '50%': { opacity: 0.5 },
-                  },
-                }}
+            {messages.map(m => (
+              <Flex
+                key={m.id}
+                justify={m.role === 'user' ? 'flex-end' : 'flex-start'}
               >
-                <Text fontWeight="semibold" mb="1" fontSize="sm">Assistant:</Text>
-                <Text fontSize="sm">Typing...</Text>
-              </Box>
+                <Box
+                  bg={
+                    m.role === 'user' ? theme.colors.grassTeal : assistantMessageBg
+                  }
+                  color={m.role === 'user' ? 'white' : iconColor}
+                  p={3}
+                  borderRadius="lg"
+                  maxW="80%"
+                  boxShadow="sm"
+                >
+                  <Text>{m.content}</Text>
+                </Box>
+              </Flex>
+            ))}
+            {isLoading && (
+              <Flex justify="flex-start">
+                <Box bg={assistantMessageBg} p={3} borderRadius="lg" boxShadow="sm">
+                  <Text>Typing...</Text>
+                </Box>
+              </Flex>
             )}
           </VStack>
 
           {/* Message input form */}
-          <Box as="form" onSubmit={handleSubmit} p="4" borderTopWidth="1px" borderColor={formBorderColor} bg={inputBg} shadow="inner">
-            <Input
-              value={input}
-              placeholder="Ask a question..."
-              onChange={handleInputChange}
-              aria-label="Chat input"
-              width="full"
-              p="3"
-              borderWidth="1px"
-              borderColor={inputBorder}
-              borderRadius="lg"
-              _focus={{ ring: 2, ringColor: 'blue.500', borderColor: 'transparent' }} // Chakra focus styles
-              transition="all 0.2s ease-in-out"
-              fontSize="sm"
-              outline="none" // Ensure no default browser outline
-            />
-            <Button
-              type="submit"
-              mt="3"
-              width="full"
-              bg={sendButtonColor}
-              color="white"
-              p="3"
-              borderRadius="lg"
-              shadow="md"
-              _hover={{ bg: sendButtonHoverColor, transform: 'scale(1.02)' }}
-              _focus={{ boxShadow: 'outline' }}
-              transition="all 0.3s ease-in-out"
-              fontSize="sm"
-              fontWeight="medium"
-              isDisabled={isLoading}
-            >
-              Send Message
-            </Button>
+          <Box
+            as="form"
+            onSubmit={handleSubmit}
+            p={4}
+            borderTopWidth="1px"
+            borderColor={borderColor}
+            bg={headerBg}
+          >
+            <Flex>
+              <Input
+                value={input}
+                onChange={handleInputChange}
+                placeholder="Type your message..."
+                bg={inputBg}
+                borderColor={borderColor}
+                _hover={{ borderColor: useColorModeValue('gray.400', 'gray.500') }}
+                _focus={{
+                  borderColor: theme.colors.grassTeal,
+                  boxShadow: `0 0 0 1px ${theme.colors.grassTeal}`
+                }}
+                borderRadius="lg"
+                mr={2}
+              />
+              <Button
+                type="submit"
+                colorScheme={buttonColorScheme}
+                borderRadius="lg"
+                px={6}
+                isLoading={isLoading}
+              >
+                Send
+              </Button>
+            </Flex>
           </Box>
         </Flex>
       )}

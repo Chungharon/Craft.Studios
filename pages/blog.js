@@ -5,17 +5,15 @@ import {
   Heading,
   Text,
   Button,
-  VStack,// This hook needs to be at the top level
   Flex,
-  Card,
-  CardBody,
-  CardFooter,
   Image,
-  Link as ChakraLink,
-  useColorModeValue // This hook needs to be at the top level
+  useColorModeValue,
+  SimpleGrid,
+  AspectRatio
 } from '@chakra-ui/react';
-import { ArrowBackIcon }
-from '@chakra-ui/icons';
+import { ArrowBackIcon } from '@chakra-ui/icons';
+import Layout from '../components/layouts/article';
+import Section from '../components/section';
 
 // Dummy blog post data
 const blogPosts = [
@@ -23,7 +21,10 @@ const blogPosts = [
     id: '1',
     title: 'The Future of Web Development',
     excerpt: 'Exploring the latest trends and technologies shaping the web.',
-    imageUrl: 'https://placehold.co/600x300/AEC6CF/000000?text=Web+Dev+Future', // Example image for card
+    imageUrl: '/images/works/amembo_01.gif', // Example image for card
+    author: 'Chungani Haron',
+    authorAvatar: '/images/takuya.jpg',
+    readTime: '3 min read',
     content: `
       <p>Web development is an ever-evolving field, constantly introducing new tools, frameworks, and methodologies. The landscape is shifting rapidly towards more interactive, performant, and user-centric experiences.</p>
       <img src="https://placehold.co/800x450/87CEEB/000000?text=AI+in+Web" alt="AI in Web Development" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1em;" />
@@ -43,7 +44,10 @@ const blogPosts = [
     id: '2',
     title: 'Mastering React Hooks',
     excerpt: 'A deep dive into useState, useEffect, and custom hooks.',
-    imageUrl: 'https://placehold.co/600x300/98FB98/000000?text=React+Hooks', // Example image for card
+    imageUrl: '/images/works/amembo_02.gif', // Example image for card
+    author: 'Chungani Haron',
+    authorAvatar: '/images/takuya.jpg',
+    readTime: '5 min read',
     content: `
       <p>React Hooks revolutionized how we write functional components, allowing us to use state and other React features without writing a class. They promote cleaner, more readable code and better separation of concerns.</p>
       <video controls style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1em;">
@@ -65,7 +69,10 @@ const blogPosts = [
     id: '3',
     title: 'CSS Grid vs. Flexbox: When to Use Which?',
     excerpt: 'A guide to choosing the right layout tool for your project.',
-    imageUrl: 'https://placehold.co/600x300/ADD8E6/000000?text=CSS+Layouts', // Example image for card
+    imageUrl: '/images/works/amembo_03.jpg', // Example image for card
+    author: 'Chakra UI',
+    authorAvatar: '/brandcraft_logo.png',
+    readTime: '4 min read',
     content: `
       <p>Both CSS Grid and Flexbox are powerful layout modules that have transformed modern web design. While they can sometimes achieve similar results, they are designed for different purposes and excel in different scenarios.</p>
       <img src="https://placehold.co/800x450/B0E0E6/000000?text=Grid+vs+Flex" alt="CSS Grid vs Flexbox" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1em;" />
@@ -86,154 +93,214 @@ const blogPosts = [
   },
 ];
 
+const BlogCard = ({ post, onClick }) => {
+  const textColor = useColorModeValue('gray.500', 'gray.400')
+  const headingColor = useColorModeValue('gray.800', 'whiteAlpha.900')
+  const cardBg = useColorModeValue('white', '#1a202c');
+  const cardBorder = useColorModeValue('gray.200', 'gray.700');
+
+  return (
+    <Box
+      onClick={onClick}
+      cursor="pointer"
+      bg={cardBg}
+      borderRadius="xl"
+      overflow="hidden"
+      shadow="lg"
+      borderWidth="1px"
+      borderColor={cardBorder}
+      transition="transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out"
+      _hover={{ transform: 'translateY(-4px)', shadow: 'xl' }}
+      display="flex"
+      flexDirection="column"
+      h="100%"
+    >
+      <AspectRatio ratio={16 / 9}>
+        <Image
+          src={post.imageUrl}
+          alt={post.title}
+          objectFit="cover"
+        />
+      </AspectRatio>
+      <Box p={{ base: 6, md: 8 }} d="flex" flexDirection="column" flex="1">
+        <Heading 
+          as="h3" 
+          variant="section-title" 
+          mb={4} 
+          color={headingColor}
+          lineHeight="1.4"
+          letterSpacing="tight"
+        >
+          {post.title}
+        </Heading>
+        <Text 
+          color={textColor} 
+          flex="1" 
+          mb={6} 
+          fontSize="md"
+          lineHeight="1.7"
+          letterSpacing="0.01em"
+        >
+          {post.excerpt}
+        </Text>
+        <Flex align="center" mt="auto">
+            <Box mr={4} p="2px"
+            borderWidth="2px"
+            borderColor="teal.500"
+            borderRadius="full"
+            display="inline-block">
+            <Image
+                borderRadius="full"
+                boxSize="40px"
+                src={post.authorAvatar}
+                alt={post.author}
+            />
+            </Box>
+            <Box>
+                <Text 
+                  fontWeight="bold" 
+                  color={headingColor} 
+                  fontSize="md"
+                  lineHeight="1.4"
+                >
+                  By {post.author}
+                </Text>
+                <Text 
+                  fontSize="sm" 
+                  color={textColor}
+                  lineHeight="1.3"
+                >
+                  {post.readTime}
+                </Text>
+            </Box>
+        </Flex>
+      </Box>
+    </Box>
+  );
+};
+
 const BlogPage = () => {
   const [selectedBlogId, setSelectedBlogId] = useState(null);
   //const { colorMode, toggleColorMode } = useColorMode();
 
   // --- ALL useColorModeValue calls moved to the top level ---
-  const cardBg = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200');
-  const cardBorderColor = useColorModeValue('gray.200', 'gray.600');
   const textColor = useColorModeValue('gray.700', 'gray.300');
   const headingColor = useColorModeValue('gray.900', 'gray.100');
-  const linkColor = useColorModeValue('teal.500', 'teal.300');
-  const buttonScheme = useColorModeValue('teal', 'purple');
 
   // Define colors for the dangerouslySetInnerHTML content styling
   const contentHeadingColor = useColorModeValue('gray.800', 'gray.200');
   const contentCodeBg = useColorModeValue('gray.100', 'gray.600');
-  const contentTextColor = useColorModeValue('gray.700', 'gray.300'); // This was already defined as textColor, but for clarity in sx prop
 
   const selectedBlog = blogPosts.find(post => post.id === selectedBlogId);
 
   return (
-    <Container maxW="container.lg" py={8}>
-      {/* Header Section */}
-      <Flex align="center" mb={8}>
-        <Box flex="1" textAlign="center">
-          <Heading as="h1" size="2xl" mb={2} color={headingColor}>
-            Our Awesome Blogs
-          </Heading>
-          <Text fontSize="lg" color={textColor}>
-            Insights, thoughts, and discoveries.
-          </Text>
-        </Box>
-        
-      </Flex>
+    <Layout title="Blog">
+      <Container maxW="container.xl" py={10}>
+        {/* Header Section */}
+        <Section delay={0.1}>
+          <Flex direction="column" align="center" mb={10}>
+            <Heading as="h1" variant="page-title" mb={4} color={headingColor}>
+              Welcome to Our Blog
+            </Heading>
+            <Text fontSize="lg" color={textColor} textAlign="center" maxW="2xl">
+              Here we share our thoughts, tutorials, and updates on the latest in technology and design.
+            </Text>
+          </Flex>
+        </Section>
 
-      <Box p={6} borderRadius="lg" shadow="md" bg={cardBg} borderColor={cardBorderColor} borderWidth="1px">
-        {selectedBlog ? (
-          // Blog Detail View
-          <Box>
-            <Button
-              leftIcon={<ArrowBackIcon />}
-              onClick={() => setSelectedBlogId(null)}
-              mb={6}
-              colorScheme={buttonScheme}
-              variant="outline"
-            >
-              Back to Blogs
-            </Button>
-            <Heading as="h2" size="xl" mb={4} color={headingColor}>
-              {selectedBlog.title}
-            </Heading>
-            <Box
-              fontSize="md"
-              color={contentTextColor} // Use the predefined textColor
-              dangerouslySetInnerHTML={{ __html: selectedBlog.content }}
-              sx={{
-                // Basic styling for content within dangerouslySetInnerHTML
-                'h1, h2, h3, h4, h5, h6': {
-                  marginTop: '1.5em',
-                  marginBottom: '0.5em',
-                  fontWeight: 'semibold',
-                  color: contentHeadingColor, // Use the predefined contentHeadingColor
-                },
-                'p': {
-                  marginBottom: '1em',
-                  lineHeight: 'tall',
-                },
-                'ul': {
-                  marginLeft: '1.5em',
-                  marginBottom: '1em',
-                  listStyleType: 'disc',
-                },
-                'ol': {
-                  marginLeft: '1.5em',
-                  marginBottom: '1em',
-                  listStyleType: 'decimal',
-                },
-                'li': {
-                  marginBottom: '0.5em',
-                },
-                'strong': {
-                  fontWeight: 'bold',
-                },
-                'code': {
-                  fontFamily: 'monospace',
-                  bg: contentCodeBg, // Use the predefined contentCodeBg
-                  px: '0.3em',
-                  py: '0.1em',
-                  borderRadius: 'md',
-                },
-                // Styles for images and videos within the content
-                'img, video': {
-                  maxWidth: '100%',
-                  height: 'auto',
-                  borderRadius: '8px', // Apply rounded corners to media
-                  marginBottom: '1em',
-                  display: 'block', // Ensure they take up full width
-                  mx: 'auto', // Center them
-                }
-              }}
-            />
-          </Box>
-        ) : (
-          // Blog List View
-          <Box>
-            <Heading as="h2" size="lg" mb={6} color={headingColor}>
-              All Posts
-            </Heading>
-            <VStack spacing={6} align="stretch">
-              {blogPosts.map((post) => (
-                <Card
-                  key={post.id}
-                  onClick={() => setSelectedBlogId(post.id)}
-                  cursor="pointer"
-                  variant="outline"
-                  borderColor={cardBorderColor}
-                  _hover={{ shadow: 'lg', transform: 'translateY(-2px)' }}
-                  transition="all 0.2s ease-in-out"
-                >
-                  {post.imageUrl && (
-                    <Image
-                      src={post.imageUrl}
-                      alt={post.title}
-                      borderTopRadius="lg" // Apply rounded corners to the top of the image
-                      objectFit="cover"
-                      height="200px" // Fixed height for consistency
-                      width="100%"
-                    />
-                  )}
-                  <CardBody>
-                    <Heading as="h3" size="md" mb={2} color={linkColor}>
-                      {post.title}
-                    </Heading>
-                    <Text color={textColor}>
-                      {post.excerpt}
-                    </Text>
-                  </CardBody>
-                  <CardFooter pt={0}>
-                    <ChakraLink color={linkColor} fontWeight="medium" _hover={{ textDecoration: 'underline' }}>
-                      Read more &rarr;
-                    </ChakraLink>
-                  </CardFooter>
-                </Card>
-              ))}
-            </VStack>
-          </Box>
-        )}
-      </Box>
-    </Container>
+        <Box>
+          {selectedBlog ? (
+            // Blog Detail View
+            <Section delay={0.1}>
+              <Button
+                leftIcon={<ArrowBackIcon />}
+                onClick={() => setSelectedBlogId(null)}
+                mb={8}
+                colorScheme="teal"
+                variant="outline"
+              >
+                Back to Blog
+              </Button>
+              <Heading as="h2" variant="page-title" mb={4} color={headingColor}>
+                {selectedBlog.title}
+              </Heading>
+              <Flex align="center" mb={8}>
+                <Box mr={4} p="2px"
+                borderWidth="2px"
+                borderColor="teal.500"
+                borderRadius="full"
+                display="inline-block">
+                <Image
+                    borderRadius="full"
+                    boxSize="50px"
+                    src={selectedBlog.authorAvatar}
+                    alt={selectedBlog.author}
+                />
+                </Box>
+                <Box>
+                    <Text fontWeight="bold" color={headingColor} fontSize="md">By {selectedBlog.author}</Text>
+                    <Text fontSize="sm" color={textColor}>{selectedBlog.readTime}</Text>
+                </Box>
+              </Flex>
+              
+              <Box
+                dangerouslySetInnerHTML={{ __html: selectedBlog.content }}
+                sx={{
+                  'h1, h2, h3, h4, h5, h6': {
+                    color: contentHeadingColor,
+                    fontWeight: 'bold',
+                    mb: 4,
+                    mt: 6
+                  },
+                  'h1': { fontSize: '2xl' },
+                  'h2': { fontSize: 'xl' },
+                  'h3': { fontSize: 'lg' },
+                  'p': {
+                    color: textColor,
+                    fontSize: 'md',
+                    mb: 4,
+                    lineHeight: 1.6
+                  },
+                  'ul, ol': {
+                    color: textColor,
+                    fontSize: 'md',
+                    mb: 4,
+                    pl: 6
+                  },
+                  'li': {
+                    mb: 2
+                  },
+                  'code': {
+                    bg: contentCodeBg,
+                    px: 2,
+                    py: 1,
+                    borderRadius: 'md',
+                    fontSize: 'sm'
+                  },
+                  'img, video': {
+                    borderRadius: 'lg',
+                    mb: 4
+                  }
+                }}
+              />
+            </Section>
+          ) : (
+            // Blog List View
+            <Section delay={0.2}>
+              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+                {blogPosts.map((post) => (
+                  <BlogCard
+                    key={post.id}
+                    post={post}
+                    onClick={() => setSelectedBlogId(post.id)}
+                  />
+                ))}
+              </SimpleGrid>
+            </Section>
+          )}
+        </Box>
+      </Container>
+    </Layout>
   );
 };
 
