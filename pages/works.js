@@ -1,12 +1,11 @@
-import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
+import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { WorkGridItem } from '../components/grid-item'
-import sevaria from '../works/sevaria_eyecatch.png';
-import hue from '../works/hue.png';
-import omoro from '../works/msOmoro.png';
-import furnituresite from '../works/home_furniture.png';
-import sandsite from '../works/sandsite.png';
+import hue from '../works/hue_screenshot.png';
+import omoro from '../works/minimal_screenshot.png';
+import furnituresite from '../works/furnitures_screenshot.png';
+import sandsite from '../works/sand_screenshot.png';
 
 const Works = () => (
   <Layout title="Works">
@@ -16,30 +15,30 @@ const Works = () => (
       </Heading>
 
       <SimpleGrid columns={[1, 1, 2]} gap={6}>
-        <Section>
-          <WorkGridItem id="sevaria" title="Sevaria" thumbnail={sevaria}>
+        {/* <Section>
+          <WorkGridItem id="sevaria.co.ke" title="Sevaria" thumbnail={sevaria}>
             A Fashion website for a Kenyan fashion designer.
           </WorkGridItem>
-        </Section>
+        </Section> */}
         
         <Section>
-          <WorkGridItem id="hue" title="Hue" thumbnail={hue}>
+          <WorkGridItem id="https://chungharon.github.io/prelaunch_site/" title="Hue" thumbnail={hue}>
             This fashion webiste for one of our clients coming soon style.
           </WorkGridItem>
         </Section>
         <Section>
-          <WorkGridItem id="#" title="MsOmoro" thumbnail={omoro}>
+          <WorkGridItem id="https://demo-astro-minimal.netlify.app/" title="MsOmoro" thumbnail={omoro}>
             This is a Airbnb welcome page to guide guests.
           </WorkGridItem>
         </Section>
         <Section delay={0.3}>
-          <WorkGridItem id="sevaria" thumbnail={furnituresite} title="Tropical Furnitures">
+          <WorkGridItem id="https://tropicalfurnitures.com/" thumbnail={furnituresite} title="Tropical Furnitures">
             A funiture Display website.
           </WorkGridItem>
         </Section>
         {/* https://betterthansand.com/ */}
         <Section delay={0.3}>
-          <WorkGridItem id="sevaria" thumbnail={sandsite} title="Better Than Sand">
+          <WorkGridItem id="https://betterthansand.com/" thumbnail={sandsite} title="Better Than Sand">
             A sand bag selling site.
           </WorkGridItem>
         </Section>
