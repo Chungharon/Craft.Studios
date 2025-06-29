@@ -16,9 +16,10 @@ import { CheckCircleIcon, StarIcon } from '@chakra-ui/icons'
 const PricingCard = ({ name, price, features, popular = false }) => {
   const bg = useColorModeValue('white', 'gray.800')
   const borderColor = useColorModeValue('gray.200', 'gray.600')
-  const hoverBg = useColorModeValue('gray.50', 'gray.700')
   const popularBg = useColorModeValue('teal.50', 'teal.900')
   const popularBorder = useColorModeValue('teal.200', 'teal.600')
+  const priceColor = useColorModeValue('gray.600', 'gray.400')
+  const listItemColor = useColorModeValue('gray.700', 'gray.300')
 
   return (
     <Box
@@ -81,7 +82,7 @@ const PricingCard = ({ name, price, features, popular = false }) => {
             {price}
           </Text>
           {price.includes('/month') && (
-            <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+            <Text fontSize="sm" color={ priceColor }>
               Billed monthly
             </Text>
           )}
@@ -95,7 +96,7 @@ const PricingCard = ({ name, price, features, popular = false }) => {
                 fontSize="md"
                 display="flex"
                 alignItems="center"
-                color={useColorModeValue('gray.700', 'gray.300')}
+                color={ listItemColor}
               >
                 <Icon 
                   as={CheckCircleIcon} 

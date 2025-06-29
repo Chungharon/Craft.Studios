@@ -33,6 +33,8 @@ export default function Chatbot() {
   const headerBg = useColorModeValue('gray.50', 'gray.900');
   const headerColor = useColorModeValue('gray.800', 'whiteAlpha.900');
   const placeholderColor = useColorModeValue('gray.400', 'gray.500');
+  const closeBtnBg = useColorModeValue('gray.200', 'gray.700');
+  const inputBorderColorhover = useColorModeValue('gray.400', 'gray.500');
   const buttonColorScheme = 'teal';
 
   const toggleChatbot = () => {
@@ -102,7 +104,7 @@ export default function Chatbot() {
             </Text>
             <CloseButton
               onClick={toggleChatbot}
-              _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+              _hover={{ bg: closeBtnBg }}
             />
           </Flex>
 
@@ -164,7 +166,7 @@ export default function Chatbot() {
                 placeholder="Type your message..."
                 bg={inputBg}
                 borderColor={borderColor}
-                _hover={{ borderColor: useColorModeValue('gray.400', 'gray.500') }}
+                _hover={{ borderColor: inputBorderColorhover }}
                 _focus={{
                   borderColor: theme.colors.grassTeal,
                   boxShadow: `0 0 0 1px ${theme.colors.grassTeal}`
